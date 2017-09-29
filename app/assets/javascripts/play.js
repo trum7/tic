@@ -9,8 +9,8 @@
  */
 function Game(el){
 	var grid = 3, // number of squares per row
-		size = 100, // size of each square in pixels
-		intelligence = 6, // intelligence of ai (higher numbers take longer)
+		size = 150, // size of each square in pixels
+		intelligence = 10, // intelligence of ai (higher numbers take longer)
 		// make everything else locals so they compress better
 		doc = document,
 		body = doc.body,
@@ -63,11 +63,11 @@ function Game(el){
 			next;
 		if (!board[move]){
 			draw(move, -1); // o = -1, x = 1
-			if (chk(0) < 0) return die('won');
+			if (chk(0) < 0) return die('Ganaste');
 			next = search(0, 1, -size, size);
-			if (next === undef) return die('tie');
+			if (next === undef) return die('Empate');
 			draw(next);
-			if (chk(0) > 0) return die('lost')
+			if (chk(0) > 0) return die('Perdiste')
 		}
 	};
 
